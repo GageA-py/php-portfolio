@@ -11,6 +11,7 @@
 
     <!-- Styles -->
     @vite('resources/css/app.css')
+    <link rel="stylesheet" href="build/assets/app-BMxmKGuO.css">
 </head>
 <body class="bg-gray-100">
     <!-- Navbar -->
