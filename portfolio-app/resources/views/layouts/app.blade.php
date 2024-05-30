@@ -36,7 +36,7 @@
                 
                 </div>
                 <div>
-                    <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white hover:text-black border-white hover:bg-white focus:outline-none focus:shadow-outline mt-4 lg:mt-0">Contact Me</a>
+                    <!--<a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white hover:text-black border-white hover:bg-white focus:outline-none focus:shadow-outline mt-4 lg:mt-0">Contact Me</a>-->
                 </div>
             </div>
         </nav>
