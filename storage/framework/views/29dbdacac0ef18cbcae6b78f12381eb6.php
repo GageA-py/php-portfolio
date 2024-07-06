@@ -1,3 +1,31 @@
+<head>
+    <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?> 
+    <link rel="stylesheet" href="<?php echo e(secure_asset('build/assets/app-ix0mzfeY.css')); ?>">
+</head>
+<header class="w-screen border-b-rounded grid grid-cols-2 items-center py-10 lg:grid-cols-3 bg-gray-800">
+        <div class="flex items-center flex-shrink-0 text-white mr-6">
+            <span class="font-semibold text-xl tracking-tight pl-10">Gage's Portfolio</span>
+        </div>
+        <div class="flex lg:justify-center lg:col-start-2"></div>
+        <?php if(Route::has('login')): ?>
+            <nav class="-mx-3 flex flex-1 justify-end pr-10">
+                <?php if(auth()->guard()->check()): ?>
+                    <a href="<?php echo e(url('/dashboard')); ?>" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                        Dashboard
+                    </a>
+                <?php else: ?>
+                    <a href="<?php echo e(route('login')); ?>" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                        Log in
+                    </a>
+                    <?php if(Route::has('register')): ?>
+                        <a href="<?php echo e(route('register')); ?>" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                            Register
+                        </a>
+                    <?php endif; ?>
+                <?php endif; ?>
+            </nav>
+        <?php endif; ?>
+    </header>
 <?php if (isset($component)) { $__componentOriginal69dc84650370d1d4dc1b42d016d7226b = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal69dc84650370d1d4dc1b42d016d7226b = $attributes; } ?>
 <?php $component = App\View\Components\GuestLayout::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -9,6 +37,7 @@
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
     <!-- Session Status -->
+
     <?php if (isset($component)) { $__componentOriginal7c1bf3a9346f208f66ee83b06b607fb5 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal7c1bf3a9346f208f66ee83b06b607fb5 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.auth-session-status','data' => ['class' => 'mb-4','status' => session('status')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
