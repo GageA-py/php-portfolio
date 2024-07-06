@@ -63,7 +63,7 @@
         }
     </style>
         <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
-        <link rel="stylesheet" href="build/assets/app-DSpg2Dqx.css">
+        <link rel="stylesheet" href="build/assets/app-ix0mzfeY.css">
     </head>
     <body>
         <div class="font-sans antialiased bg-gray-600 dark:text-white/50 m-0">
