@@ -1,6 +1,6 @@
 <head>
 @vite('resources/css/app.css')
-<link rel="stylesheet" href="public/build/assets/app-ix0mzfeY.css">
+<link rel="stylesheet" href="build/assets/app-ix0mzfeY.css">
 </head>
 
 <header class="w-screen border-b-rounded grid grid-cols-2 items-center py-10 lg:grid-cols-3 bg-gray-800">
