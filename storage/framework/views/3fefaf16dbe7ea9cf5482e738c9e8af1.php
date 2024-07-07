@@ -2,8 +2,8 @@
 <html>
 <head>
     <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?> 
-    <link rel="stylesheet" href="<?php echo e(secure_asset('build/assets/app-ix0mzfeY.css')); ?>">
-    <script src="<?php echo e(secure_asset('build/assets/app-Bg1aHGgo.js')); ?>" defer></script>
+    <link rel="stylesheet" href="<?php echo e(secure_asset('build/assets/app-D8tMRP4W.css')); ?>">
+
 </head>
 <body>
     <header class="w-screen border-b-rounded grid grid-cols-2 items-center py-10 lg:grid-cols-3 bg-gray-800">
@@ -296,9 +296,10 @@
             </div>
 
             <div class="mt-4">
-                <input id="link-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-white dark:border-gray-600">
-                <label for="link-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-black"><strong>Subscribe to get notified when new</strong> <a href="/projects" class="text-blue-600 dark:text-blue-500 hover:underline">projects</a> <strong>are posted!</strong></label>
+            <input id="link-checkbox" type="checkbox" name="subscribe" value="1" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-white dark:border-gray-600">
+            <label for="link-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-black"><strong>Subscribe to get notified when new</strong> <a href="/projects" class="text-blue-600 dark:text-blue-500 hover:underline">projects</a> <strong>are posted!</strong></label>
             </div>
+
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="<?php echo e(route('login')); ?>">

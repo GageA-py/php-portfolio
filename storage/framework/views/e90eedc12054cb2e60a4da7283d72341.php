@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-        <title><?php echo e(config('app.name', 'Laravel')); ?></title>
+        <title><?php echo e(config('app.name', 'Gage\'s Portfolio')); ?></title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -41,7 +41,7 @@
                 </a>
             </div>
 
-            <div class="w-full sm:max-w-md sm:mt-10 mt-10 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+            <div class="w-full sm:max-w-md sm:mt-0 mt-5 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
                 <?php echo e($slot); ?>
 
             </div>

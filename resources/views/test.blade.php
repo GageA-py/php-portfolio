@@ -1,4 +1,4 @@
-<!-- resources/views/home.blade.php -->
+<!-- resources/views/welcome.blade.php -->
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -63,8 +63,9 @@
             overflow: auto;
         }
     </style>
-        @vite('resources/css/app.css')
-        <link rel="stylesheet" href="build/assets/app-ix0mzfeY.css">
+        @vite('resources/css/app.css') 
+    <link rel="stylesheet" href="{{ secure_asset('build/assets/app-ix0mzfeY.css') }}">
+    <script src="{{ secure_asset('build/assets/app-Bg1aHGgo.js') }}" defer></script>
     </head>
 
 <header class="w-screen border-b-rounded grid grid-cols-2 items-center py-10 lg:grid-cols-3 bg-gray-800">
