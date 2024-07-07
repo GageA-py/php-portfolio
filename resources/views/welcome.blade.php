@@ -102,7 +102,7 @@
                     <div class="relative w-full m-0 max-w-2xl px-6 lg:max-w-7xl bg-">
                         
                         
-                        <div class="flex items-center justify-center mt-0 min-h-screen bg-gray-100">
+                        <div class="flex items-center justify-center mt-0 sm:-mt-20 min-h-screen bg-gray-100">
                             <div class="max-w-sm bg-gray-800 border border-gray-900 rounded-lg overflow-hidden">
                                 <a href="#">
                                     <img class="w-full rounded-t-lg" src="{{ asset('images/computer.jpg') }}" alt="Default Image">

@@ -6,30 +6,29 @@
     <script src="{{ secure_asset('build/assets/app-Bg1aHGgo.js') }}" defer></script>
 </head>
 <body>
-    <header class="w-screen border-b-rounded grid grid-cols-2 items-center py-10 lg:grid-cols-3 bg-gray-800">
-        <div class="flex items-center flex-shrink-0 text-white mr-6">
-            <span class="font-semibold text-xl tracking-tight pl-10">Gage's Portfolio</span>
-        </div>
-        <div class="flex lg:justify-center lg:col-start-2"></div>
-        @if (Route::has('login'))
-            <nav class="-mx-3 flex flex-1 justify-end pr-10">
-                @auth
-                    <!-- Authenticated links -->
-                @else
-                    <a href="{{ route('login') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                        Log in
-                    </a>
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                            Register
+    <header class="w-full bg-gray-800 py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <span class="font-semibold text-xl text-white">Gage's Portfolio</span>
+            @if (Route::has('login'))
+                <nav>
+                    @auth
+                        <!-- Authenticated links -->
+                    @else
+                        <a href="{{ route('login') }}" class="rounded-md px-3 py-2 text-white transition hover:text-gray-300">
+                            Log in
                         </a>
-                    @endif
-                @endauth
-            </nav>
-        @endif
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="rounded-md px-3 py-2 text-white transition hover:text-gray-300">
+                                Register
+                            </a>
+                        @endif
+                    @endauth
+                </nav>
+            @endif
+        </div>
     </header>
 
-    <x-guest-layout>
+    <x-guest-layout class="login-form-container mt-5 sm:mt-10">
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
         <form method="POST" action="{{ secure_url(route('login', [], false)) }}">
@@ -58,8 +57,6 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                
-
                 <x-primary-button class="ms-3">
                     {{ __('Log in') }}
                 </x-primary-button>
