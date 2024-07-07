@@ -3333,3 +3333,39 @@
 #54 /home/markus/laravel-app/main-app/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(16): require_once('...')
 #55 {main}
 "} 
+[2024-07-07 00:42:45] local.ERROR: Unclosed '{' on line 8 {"exception":"[object] (ParseError(code: 0): Unclosed '{' on line 8 at /home/markus/laravel-app/main-app/app/Providers/AppServiceProvider.php:26)
+[stacktrace]
+#0 /home/markus/laravel-app/main-app/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/markus/laravel-app/main-app/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(51): class_exists()
+#3 /home/markus/laravel-app/main-app/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(33): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->mergeAdditionalProviders()
+#4 /home/markus/laravel-app/main-app/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(316): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#5 /home/markus/laravel-app/main-app/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(470): Illuminate\\Foundation\\Application->bootstrapWith()
+#6 /home/markus/laravel-app/main-app/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(194): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2024-07-07 00:43:00] local.ERROR: Unclosed '{' on line 8 {"exception":"[object] (ParseError(code: 0): Unclosed '{' on line 8 at /home/markus/laravel-app/main-app/app/Providers/AppServiceProvider.php:26)
+[stacktrace]
+#0 /home/markus/laravel-app/main-app/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/markus/laravel-app/main-app/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(51): class_exists()
+#3 /home/markus/laravel-app/main-app/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(33): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->mergeAdditionalProviders()
+#4 /home/markus/laravel-app/main-app/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(316): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#5 /home/markus/laravel-app/main-app/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(470): Illuminate\\Foundation\\Application->bootstrapWith()
+#6 /home/markus/laravel-app/main-app/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(194): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2024-07-07 00:43:00] local.ERROR: Unclosed '{' on line 8 {"exception":"[object] (ParseError(code: 0): Unclosed '{' on line 8 at /home/markus/laravel-app/main-app/app/Providers/AppServiceProvider.php:26)
+[stacktrace]
+#0 /home/markus/laravel-app/main-app/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/markus/laravel-app/main-app/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(51): class_exists()
+#3 /home/markus/laravel-app/main-app/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(33): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->mergeAdditionalProviders()
+#4 /home/markus/laravel-app/main-app/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(316): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#5 /home/markus/laravel-app/main-app/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(470): Illuminate\\Foundation\\Application->bootstrapWith()
+#6 /home/markus/laravel-app/main-app/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(194): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 

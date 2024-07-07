@@ -77,12 +77,13 @@
                                 <nav class="-mx-3 flex flex-1 justify-end pr-10">
                                     @auth
                                     <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-                                        <button type="button" class="text-white mr-5 bg-gray-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-gray-700 dark:hover:bg-white dark:focus:ring-white dark:hover:text-black">
-                                        <a href="mailto:gage.php@proton.me">Contact Me</a>
-                                        </button>
-                                        <button class="text-white"type="submit">Logout</button>
-                                    </form>
+                                @csrf
+                                <button type="button" class="text-white mr-5 bg-gray-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-gray-700 dark:hover:bg-white dark:focus:ring-white dark:hover:text-black">
+                                    <a href="mailto:gage.php@proton.me">Contact Me</a>
+                                </button>
+                                <button type="submit" class="text-white">Logout</button>
+                            </form>
+
                                     @else
                                         <a href="{{ route('login') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                                             Log in
