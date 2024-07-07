@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Gage's Portfolio</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -68,37 +68,38 @@
     <script src="{{ secure_asset('build/assets/app-Bg1aHGgo.js') }}" defer></script>
     </head>
 
-<header class="w-screen border-b-rounded grid grid-cols-2 items-center py-10 lg:grid-cols-3 bg-gray-800">
-            <div class="flex items-center flex-shrink-0 text-white mr-6">
-                <span class="font-semibold text-xl tracking-tight pl-10">Gage's Portfolio</span>
-            </div>
-                            <div class="flex lg:justify-center lg:col-start-2"></div>
-                            
-                            @if (Route::has('login'))
-                                <nav class="-mx-3 flex flex-1 justify-end pr-10">
-                                    @auth
-                                    <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button type="button" class="text-white mr-5 bg-gray-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-gray-700 dark:hover:bg-white dark:focus:ring-white dark:hover:text-black">
-                                    <a href="mailto:gage.php@proton.me">Contact Me</a>
-                                </button>
-                                <button type="submit" class="text-white">Logout</button>
-                            </form>
-
-                                    @else
-                                        <a href="{{ route('login') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                                            Log in
-                                        </a>
-
-                                        @if (Route::has('register'))
-                                            <a href="{{ route('register') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                                                Register
-                                            </a>
-                                        @endif
-                                    @endauth
-                                </nav>
-                            @endif
-                        </header>
+    <header class="w-screen border-b-rounded flex items-center justify-between py-4 bg-gray-800">
+    <div class="flex items-center text-white pl-4">
+        <span class="font-semibold text-xl tracking-tight whitespace-nowrap">Gage's Portfolio</span>
+    </div>
+    <div class="hidden lg:flex lg:flex-grow lg:justify-center"></div>
+    @if (Route::has('login'))
+        <nav class="flex items-center justify-end pr-4 space-x-2">
+            @auth
+                <form method="POST" action="{{ route('logout') }}" class="flex space-x-2">
+                    @csrf
+                    <button type="button" class="text-white bg-gray-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-gray-700 dark:hover:bg-white dark:focus:ring-white dark:hover:text-black">
+                        <a href="mailto:gage.php@proton.me">Contact Me</a>
+                    </button>
+                    <button type="submit" class="text-white bg-gray-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-gray-700 dark:hover:bg-white dark:focus:ring-white dark:hover:text-black">
+                        Logout
+                    </button>
+                </form>
+            @else
+                <div class="flex space-x-2">
+                    <a href="{{ route('login') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white whitespace-nowrap">
+                        Log in
+                    </a>
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white whitespace-nowrap">
+                            Register
+                        </a>
+                    @endif
+                </div>
+            @endauth
+        </nav>
+    @endif
+</header>
     <div class="text-center py-8 bg-gray-100">
         <div class="container mx-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
