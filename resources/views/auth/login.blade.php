@@ -43,7 +43,7 @@
     <x-guest-layout class="login-form-container -mt-10">
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
-        <form method="POST" action="{{ secure_url(route('login', [], false)) }}">
+        <form method="POST" action="{{ url(route('login', [], false)) }}">
             @csrf
 
             <!-- Email Address -->

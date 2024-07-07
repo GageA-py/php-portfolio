@@ -51,7 +51,7 @@
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
         <strong>Register to get access to features such as sending emails and subscribing to my newsletter.</strong>
-        <form method="POST" action="<?php echo e(secure_url(route('register', [], false))); ?>">
+        <form method="POST" action="<?php echo e(url(route('register', [], false))); ?>">
             <?php echo csrf_field(); ?>
 
             <div>
