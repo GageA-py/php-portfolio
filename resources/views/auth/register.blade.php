@@ -42,7 +42,7 @@
 
     <x-guest-layout>
         <strong>Register to get access to features such as sending emails and subscribing to my newsletter.</strong>
-        <form method="POST" action="{{ secure_url(route('register', [], false)) }}">
+        <form method="POST" action="{{ url(route('register', [], false)) }}">
             @csrf
 
             <div>
