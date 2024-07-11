@@ -103,7 +103,6 @@
     });
 </script>
 
-
 <div class="main-content bg-gray-200 py-8 px-6 flex justify-center items-center min-h-screen">
     <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg text-center">
         <img class="w-full rounded-t-lg" src="{{ asset('images/computer.jpg') }}" alt="Default Image">
