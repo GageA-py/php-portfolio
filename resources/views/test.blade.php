@@ -55,22 +55,18 @@
                     </button>
                     <div class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg overflow-hidden z-10 hidden" id="dropdown">
                         <div class="px-4 py-2">
-                        <a href="{{ route('subscribe.page') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Subscribe</a>
+                            <a href="{{ route('subscribe.page') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Subscribe</a>
                             <a href="mailto:{{ Auth::user()->email }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Contact Me</a>
+                            @if (Auth::user()->subscribed)
+                                <div class="border-t border-gray-200"></div>
+                                <a href="{{ route('unsubscribe.page') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Unsubscribe</a>
+                            @endif
+                            <div class="border-t border-gray-200"></div>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900 focus:outline-none">Logout</button>
+                            </form>
                         </div>
-                        <div class="border-t border-gray-200"></div>
-                        @if (Auth::user()->subscribed)
-                            <div class="border-t border-gray-200"></div>
-                            <a href="{{ route('unsubscribe.page') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Unsubscribe</a>
-                        @else
-                            <div class="border-t border-gray-200"></div>
-                            
-                        @endif
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <button type="submit" class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900 focus:outline-none">Logout</button>
-                        </form>
-                       
                     </div>
                 </div>
             @else
@@ -106,26 +102,6 @@
         });
     });
 </script>
-
-<div class="text-center py-8 bg-gray-100">
-    <div class="container mx-auto">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            @foreach ($projects as $project)
-                <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                    <h1 class="text-xl font-semibold p-4">{{ $project->title }}</h1>
-                    <img class="w-full h-auto object-cover" src="{{ asset($project->image) }}" alt="{{ $project->title }}">
-                    <div class="p-4">
-                        <p>{{ $project->description }}</p>
-                        <a href="{{ $project->link }}" class="text-blue-500 hover:underline">View Project Source Code On GitHub</a>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div>
-</div>
-
-</body>
-</html>
 
 <div class="text-center py-8 bg-gray-100">
     <div class="container mx-auto">

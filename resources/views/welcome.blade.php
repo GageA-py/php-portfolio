@@ -55,7 +55,12 @@
                     </button>
                     <div class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg overflow-hidden z-10 hidden" id="dropdown">
                         <div class="px-4 py-2">
-                        <a href="{{ route('subscribe.page') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Subscribe</a>
+                            <a href="{{ route('subscribe.page') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Subscribe</a>
+                            @if (Auth::user()->subscribed)
+                                <div class="border-t border-gray-200"></div>
+                                <a href="{{ route('unsubscribe.page') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Unsubscribe</a>
+                                <div class="border-t border-gray-200"></div>
+                            @endif
                             <a href="mailto:{{ Auth::user()->email }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Contact Me</a>
                         </div>
                         <div class="border-t border-gray-200"></div>
@@ -63,13 +68,6 @@
                             @csrf
                             <button type="submit" class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900 focus:outline-none">Logout</button>
                         </form>
-                        @if (Auth::user()->subscribed)
-                            <div class="border-t border-gray-200"></div>
-                            <a href="{{ route('unsubscribe.page') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Unsubscribe</a>
-                        @else
-                            <div class="border-t border-gray-200"></div>
-                            
-                        @endif
                     </div>
                 </div>
             @else
