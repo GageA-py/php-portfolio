@@ -9,7 +9,7 @@
 <body>
 <header class="w-screen border-b-rounded flex items-center justify-between py-4 bg-gray-800">
     <div class="flex items-center text-white pl-4">
-        <span class="font-semibold text-xl tracking-tight whitespace-nowrap">Gage's Portfolio</span>
+        <a href="/projects"><span class="font-semibold text-xl tracking-tight whitespace-nowrap">Gage's Portfolio</span></a>
     </div>
     <div class="hidden lg:flex lg:flex-grow lg:justify-center"></div>
     @if (Route::has('login'))
@@ -42,7 +42,7 @@
 
     <x-guest-layout>
         <strong>Register to get access to features such as sending emails and subscribing to my newsletter.</strong>
-        <form method="POST" action="{{ url(route('register', [], false)) }}">
+        <form method="POST" action="{{ secure_url(route('register', [], false)) }}">
             @csrf
 
             <div>

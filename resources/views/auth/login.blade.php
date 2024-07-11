@@ -9,7 +9,7 @@
 <body class="">
 <header class="w-screen border-b-rounded flex items-center justify-between py-4 bg-gray-800">
     <div class="flex items-center text-white pl-4">
-        <span class="font-semibold text-xl tracking-tight whitespace-nowrap">Gage's Portfolio</span>
+    <a href="/projects"><span class="font-semibold text-xl tracking-tight whitespace-nowrap">Gage's Portfolio</span></a>
     </div>
     <div class="hidden lg:flex lg:flex-grow lg:justify-center"></div>
     @if (Route::has('login'))
@@ -43,7 +43,7 @@
     <x-guest-layout class="login-form-container -mt-10">
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
-        <form method="POST" action="{{ url(route('login', [], false)) }}">
+        <form method="POST" action="{{ secure_url(route('login', [], false)) }}">
             @csrf
 
             <!-- Email Address -->
@@ -67,6 +67,8 @@
                     <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
+
+            
 
             <div class="flex items-center justify-end mt-4">
                 <x-primary-button class="ms-3">

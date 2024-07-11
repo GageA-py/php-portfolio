@@ -9,7 +9,7 @@
 <body class="">
 <header class="w-screen border-b-rounded flex items-center justify-between py-4 bg-gray-800">
     <div class="flex items-center text-white pl-4">
-        <span class="font-semibold text-xl tracking-tight whitespace-nowrap">Gage's Portfolio</span>
+    <a href="/projects"><span class="font-semibold text-xl tracking-tight whitespace-nowrap">Gage's Portfolio</span></a>
     </div>
     <div class="hidden lg:flex lg:flex-grow lg:justify-center"></div>
     <?php if(Route::has('login')): ?>
@@ -71,7 +71,7 @@
 <?php unset($__componentOriginal7c1bf3a9346f208f66ee83b06b607fb5); ?>
 <?php endif; ?>
 
-        <form method="POST" action="<?php echo e(secure_url(route('login', [], false))); ?>">
+        <form method="POST" action="<?php echo e(url(route('login', [], false))); ?>">
             <?php echo csrf_field(); ?>
 
             <!-- Email Address -->
@@ -209,6 +209,8 @@
                     <span class="ms-2 text-sm text-gray-600"><?php echo e(__('Remember me')); ?></span>
                 </label>
             </div>
+
+            
 
             <div class="flex items-center justify-end mt-4">
                 <?php if (isset($component)) { $__componentOriginald411d1792bd6cc877d687758b753742c = $component; } ?>

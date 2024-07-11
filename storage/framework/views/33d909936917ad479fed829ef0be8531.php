@@ -43,21 +43,35 @@
 <body class="bg-gray-100">
 <header class="w-screen border-b-rounded flex items-center justify-between py-4 bg-gray-800">
     <div class="flex items-center text-white pl-4">
-        <span class="font-semibold text-xl tracking-tight whitespace-nowrap">Gage's Portfolio</span>
+        <a href="/projects"><span class="font-semibold text-xl tracking-tight whitespace-nowrap">Gage's Portfolio</span></a>
     </div>
     <div class="hidden lg:flex lg:flex-grow lg:justify-center"></div>
     <?php if(Route::has('login')): ?>
         <nav class="flex items-center justify-end pr-4 space-x-2">
             <?php if(auth()->guard()->check()): ?>
-                <form method="POST" action="<?php echo e(route('logout')); ?>" class="flex space-x-2">
-                    <?php echo csrf_field(); ?>
-                    <button type="button" class="text-white bg-gray-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-gray-700 dark:hover:bg-white dark:focus:ring-white dark:hover:text-black">
-                        <a href="mailto:gage.php@proton.me">Contact Me</a>
+                <div class="relative">
+                    <button type="button" class="text-white hover:text-blue-300 focus:outline-none dark:text-gray-300" id="userDropdown">
+                        <?php echo e(Auth::user()->name); ?> (<?php echo e(Auth::user()->email); ?>)
                     </button>
-                    <button type="submit" class="text-white bg-gray-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-gray-700 dark:hover:bg-white dark:focus:ring-white dark:hover:text-black">
-                        Logout
-                    </button>
-                </form>
+                    <div class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg overflow-hidden z-10 hidden" id="dropdown">
+                        <div class="px-4 py-2">
+                        <a href="<?php echo e(route('subscribe.page')); ?>" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Subscribe</a>
+                            <a href="mailto:<?php echo e(Auth::user()->email); ?>" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Contact Me</a>
+                        </div>
+                        <div class="border-t border-gray-200"></div>
+                        <form method="POST" action="<?php echo e(route('logout')); ?>">
+                            <?php echo csrf_field(); ?>
+                            <button type="submit" class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900 focus:outline-none">Logout</button>
+                        </form>
+                        <?php if(Auth::user()->subscribed): ?>
+                            <div class="border-t border-gray-200"></div>
+                            <a href="<?php echo e(route('unsubscribe.page')); ?>" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Unsubscribe</a>
+                        <?php else: ?>
+                            <div class="border-t border-gray-200"></div>
+                            
+                        <?php endif; ?>
+                    </div>
+                </div>
             <?php else: ?>
                 <div class="flex space-x-2">
                     <a href="<?php echo e(route('login')); ?>" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white whitespace-nowrap">
@@ -73,6 +87,25 @@
         </nav>
     <?php endif; ?>
 </header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const userDropdown = document.getElementById('userDropdown');
+        const dropdown = document.getElementById('dropdown');
+
+        userDropdown.addEventListener('click', function() {
+            dropdown.classList.toggle('hidden');
+        });
+
+        // Close dropdown if clicked outside
+        document.addEventListener('click', function(event) {
+            if (!dropdown.contains(event.target) && !userDropdown.contains(event.target)) {
+                dropdown.classList.add('hidden');
+            }
+        });
+    });
+</script>
+
 
 <div class="main-content bg-gray-200 py-8 px-6 flex justify-center items-center min-h-screen">
     <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg text-center">
