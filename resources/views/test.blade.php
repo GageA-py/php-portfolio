@@ -1,19 +1,12 @@
-<!-- resources/views/welcome.blade.php -->
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Gage's Portfolio</title>
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-
-        <!-- Styles -->
-        <style>
-        /* ! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com */
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gage's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <style>
         *, ::after, ::before { 
             box-sizing: border-box; 
             border-width: 0; 
@@ -63,12 +56,12 @@
             overflow: auto;
         }
     </style>
-        @vite('resources/css/app.css') 
+    @vite('resources/css/app.css') 
     <link rel="stylesheet" href="{{ secure_asset('build/assets/app-ix0mzfeY.css') }}">
     <script src="{{ secure_asset('build/assets/app-Bg1aHGgo.js') }}" defer></script>
-    </head>
-
-    <header class="w-screen border-b-rounded flex items-center justify-between py-4 bg-gray-800">
+</head>
+<body class="bg-gray-100">
+<header class="w-screen border-b-rounded flex items-center justify-between py-4 bg-gray-800">
     <div class="flex items-center text-white pl-4">
         <a href="/projects"><span class="font-semibold text-xl tracking-tight whitespace-nowrap">Gage's Portfolio</span></a>
     </div>
@@ -81,24 +74,19 @@
                         {{ Auth::user()->name }} ({{ Auth::user()->email }})
                     </button>
                     <div class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg overflow-hidden z-10 hidden" id="dropdown">
-                        <div class="px-4 py-2">
-                        <a href="{{ route('subscribe.page') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Subscribe</a>
+                        <div class="flex flex-col">
+                            <a href="{{ route('subscribe.page') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Subscribe</a>
                             <a href="mailto:{{ Auth::user()->email }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Contact Me</a>
-                        </div>
-                        @if (Auth::user()->subscribed)
-                            <div class="border-t border-gray-200">
-                            <a href="{{ route('unsubscribe.page') }}" class="block px- py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Unsubscribe</a>
-                            </div>
-                        @else
+                            @if (Auth::user()->subscribed)
+                                <div class="border-t border-gray-200"></div>
+                                <a href="{{ route('unsubscribe.page') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Unsubscribe</a>
+                            @endif
                             <div class="border-t border-gray-200"></div>
-                            
-                        @endif
-                        <div class="border-t border-gray-200"></div>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <button type="submit" class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900 focus:outline-none">Logout</button>
-                        </form>
-                        
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900 focus:outline-none">Logout</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             @else
@@ -135,10 +123,10 @@
     });
 </script>
 
-    <div class="text-center py-8 bg-gray-100">
-        <div class="container mx-auto">
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                @foreach ($projects as $project)
+<div class="text-center py-8 bg-gray-100">
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            @foreach ($projects as $project)
                 <div class="bg-white shadow-md rounded-lg overflow-hidden">
                     <h1 class="text-xl font-semibold p-4">{{ $project->title }}</h1>
                     <img class="w-full h-auto object-cover" src="{{ asset($project->image) }}" alt="{{ $project->title }}">
@@ -147,10 +135,10 @@
                         <a href="{{ $project->link }}" class="text-blue-500 hover:underline">View Project Source Code On GitHub</a>
                     </div>
                 </div>
-                @endforeach
-            </div>
+            @endforeach
         </div>
     </div>
+</div>
 
-
-
+</body>
+</html>
