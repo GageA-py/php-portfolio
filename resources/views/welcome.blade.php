@@ -54,22 +54,19 @@
                         {{ Auth::user()->name }} ({{ Auth::user()->email }})
                     </button>
                     <div class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg overflow-hidden z-10 hidden" id="dropdown">
-                        <div class="px-4 py-2">
-                        <a href="{{ route('subscribe.page') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Subscribe</a>
+                        <div class="flex flex-col">
+                            <a href="{{ route('subscribe.page') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Subscribe</a>
                             <a href="mailto:{{ Auth::user()->email }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Contact Me</a>
+                            @if (Auth::user()->subscribed)
+                                <div class="border-t border-gray-200"></div>
+                                <a href="{{ route('unsubscribe.page') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Unsubscribe</a>
+                            @endif
+                            <div class="border-t border-gray-200"></div>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900 focus:outline-none">Logout</button>
+                            </form>
                         </div>
-                        <div class="border-t border-gray-200"></div>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <button type="submit" class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900 focus:outline-none">Logout</button>
-                        </form>
-                        @if (Auth::user()->subscribed)
-                            <div class="border-t border-gray-200"></div>
-                            <a href="{{ route('unsubscribe.page') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Unsubscribe</a>
-                        @else
-                            <div class="border-t border-gray-200"></div>
-                            
-                        @endif
                     </div>
                 </div>
             @else
@@ -105,6 +102,7 @@
         });
     });
 </script>
+
 
 <div class="main-content bg-gray-200 py-8 px-6 flex justify-center items-center min-h-screen">
     <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg text-center">
