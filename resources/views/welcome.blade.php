@@ -124,23 +124,22 @@
     });
 </script>
 
-<div class="main-content bg-gray-200 py-8 px-6 flex justify-center items-center min-h-screen">
-    <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg text-center">
-        <img class="w-full rounded-t-lg" src="{{ asset('images/computer.jpg') }}" alt="Default Image">
-        <h5 class="my-4 text-2xl font-bold text-gray-900">Welcome To My Portfolio!</h5>
-        <p class="mb-4 text-gray-700">
-            My name is Gage and I'm a freelance software developer from Ontario, Canada. I have
-            experience with multiple programming languages and frameworks such as
-            Python (Django, Flask, PyGame), PHP (Laravel), WordPress, and JavaScript. Click below to view a variety of
-            projects I have put together as a solo developer!
-        </p>
-        <a href="/projects" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
-            View Projects
-            <svg class="rtl:rotate-180 w-4 h-4 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-            </svg>
-        </a>
+<div class="text-center py-8 bg-gray-100">
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            @foreach ($projects as $project)
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <h1 class="text-xl font-semibold p-4">{{ $project->title }}</h1>
+                    <img class="w-full h-auto object-cover" src="{{ asset($project->image) }}" alt="{{ $project->title }}">
+                    <div class="p-4">
+                        <p>{{ $project->description }}</p>
+                        <a href="{{ $project->link }}" class="text-blue-500 hover:underline">View Project Source Code On GitHub</a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
 </div>
+
 </body>
 </html>
