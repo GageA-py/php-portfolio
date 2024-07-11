@@ -65,44 +65,45 @@
     <div class="flex items-center text-white pl-4">
         <a href="/projects"><span class="font-semibold text-xl tracking-tight whitespace-nowrap">Gage's Portfolio</span></a>
     </div>
-    <div class="hidden lg:flex lg:flex-grow lg:justify-center"></div>
-    @if (Route::has('login'))
-        <nav class="flex items-center justify-end pr-4 space-x-2">
-            @auth
-                <div class="relative">
-                    <button type="button" class="text-white hover:text-blue-300 focus:outline-none dark:text-gray-300" id="userDropdown">
-                        {{ Auth::user()->name }} ({{ Auth::user()->email }})
-                    </button>
-                    <div class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg overflow-hidden z-10 hidden" id="dropdown">
-                        <div class="flex flex-col">
-                            <a href="{{ route('subscribe.page') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Subscribe</a>
-                            <a href="mailto:{{ Auth::user()->email }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Contact Me</a>
-                            @if (Auth::user()->subscribed)
+    <div class="lg:flex lg:flex-grow lg:justify-end pr-4">
+        @if (Route::has('login'))
+            <nav class="flex items-center space-x-2">
+                @auth
+                    <div class="relative">
+                        <button type="button" class="text-white hover:text-blue-300 focus:outline-none dark:text-gray-300" id="userDropdown">
+                            {{ Auth::user()->name }} ({{ Auth::user()->email }})
+                        </button>
+                        <div class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg overflow-hidden z-10 hidden" id="dropdown">
+                            <div class="flex flex-col">
+                                <a href="{{ route('subscribe.page') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Subscribe</a>
+                                <a href="mailto:{{ Auth::user()->email }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Contact Me</a>
+                                @if (Auth::user()->subscribed)
+                                    <div class="border-t border-gray-200"></div>
+                                    <a href="{{ route('unsubscribe.page') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Unsubscribe</a>
+                                @endif
                                 <div class="border-t border-gray-200"></div>
-                                <a href="{{ route('unsubscribe.page') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Unsubscribe</a>
-                            @endif
-                            <div class="border-t border-gray-200"></div>
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button type="submit" class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900 focus:outline-none">Logout</button>
-                            </form>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900 focus:outline-none">Logout</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @else
-                <div class="flex space-x-2">
-                    <a href="{{ route('login') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white whitespace-nowrap">
-                        Log in
-                    </a>
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white whitespace-nowrap">
-                            Register
+                @else
+                    <div class="flex space-x-2">
+                        <a href="{{ route('login') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white whitespace-nowrap">
+                            Log in
                         </a>
-                    @endif
-                </div>
-            @endauth
-        </nav>
-    @endif
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white whitespace-nowrap">
+                                Register
+                            </a>
+                        @endif
+                    </div>
+                @endauth
+            </nav>
+        @endif
+    </div>
 </header>
 
 <script>
