@@ -113,6 +113,7 @@
                     <img class="w-full h-auto object-cover" src="{{ asset($project->image) }}" alt="{{ $project->title }}">
                     <div class="p-4">
                         <p>{{ $project->description }}</p>
+                        @if ($project->link)
                         <a href="{{ $project->link }}" class="text-blue-500 hover:underline">View Project Source Code On GitHub</a>
                     </div>
                 </div>
