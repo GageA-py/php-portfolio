@@ -6,7 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
-{   
-    protected $table = 'project';
+{
     use HasFactory;
+
+    protected $table = 'projects';
+
+    protected $fillable = [
+        'title',
+        'description',
+        'tags',
+        'image',
+        'link',
+        'timestamps',
+    ];
 }
